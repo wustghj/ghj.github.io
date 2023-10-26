@@ -1,0 +1,28 @@
+<!-- a.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Load b.html Content</title>
+</head>
+<body>
+
+<div id="content-container">
+    <!-- Content from b.html will be inserted here -->
+</div>
+
+<script>
+    // 使用fetch加载b.html的内容
+    fetch('./public/index.html')
+        .then(response => response.text())
+        .then(html => {
+            // 将b.html的内容插入到content-container元素中
+            document.getElementById('content-container').innerHTML = html;
+        })
+        .catch(error => console.error('Error fetching b.html:', error));
+</script>
+
+</body>
+</html>
